@@ -1,0 +1,104 @@
+<section>
+    <div class="col-sm-12 col-md-12 home-new-movies">
+        <div class="movie movie--test movie--test--left" *ngFor="let movie of HomeLatestMovie">
+            <div class="movie__images">
+                <a routerLink="/movies/{{movie.id}}" class="movie-beta__link">
+                    <img alt="" src="{{movie.medium_cover_image}}">
+                </a>
+            </div>
+
+            <div class="movie__info">
+                <a routerLink="/movies/{{movie.id}}"  class="movie__title">{{movie.title}}  </a>
+
+                <p class="movie__time">{{movie.runtime}} min</p>
+
+                <p class="movie__option">{{movie.genres}}</p>
+                
+                <div class="movie__rate">
+                    <!-- <div class="score" style="cursor: pointer; width: 130px;"><img src="images/rate/star-off.svg" alt="1" title="bad">&nbsp;<img src="images/rate/star-off.svg" alt="2" title="poor">&nbsp;<img src="images/rate/star-off.svg" alt="3" title="regular">&nbsp;<img src="images/rate/star-off.svg" alt="4" title="good">&nbsp;<img src="images/rate/star-off.svg" alt="5" title="gorgeous"><input type="hidden" name="score"></div> -->
+                    <span class="movie__rating">{{movie.rating}}</span>
+                </div>               
+            </div>
+        </div>
+    </div>    
+</section>
+<div class="clearfix"></div>
+<h2 class="page-heading">Action and Adventure <a routerLink="/action_adventure" class="view-all">View All<i class="fas fa-angle-double-right"></i></a></h2>
+<div class="action">
+    
+<owl-carousel-o [options]="customOptions">
+ 
+    <ng-template carouselSlide *ngFor="let movie of movies">
+        <article class="all-img-block">
+            <section class="movie-poster">
+                <img src="{{movie.medium_cover_image}}" class="img-fluid"/>
+                <a routerLink="/movies/{{movie.id}}"><i class="fa fa-download"></i></a>
+            </section>
+            <section class="movie-details">
+                <div class="movie-rating-wrapper">
+                    <div class="movie-rating">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <span class="rating-summary">
+                        {{movie.rating}}
+                    </span>
+                    <span class="year">{{movie.year}}</span>
+                </div>
+                <h4 class="movie-title">
+                    <a routerLink="/movies/{{movie.id}}">{{movie.title}}</a>
+                </h4>
+                <span class="tag">{{movie.genres}}</span>
+            </section>
+            
+        </article>
+    </ng-template>
+   
+</owl-carousel-o>
+</div>
+<h2 class="page-heading">Top Rated Movie <a routerLink="/top_rated" class="view-all"> View All <i class="fas fa-angle-double-right"></i></a></h2>
+<div class="action">
+<owl-carousel-o [options]="customOptions">
+ 
+    <ng-template carouselSlide *ngFor="let movie of ratedMovie">
+        <article class="all-img-block">
+            <section class="movie-poster">
+                <img src="{{movie.medium_cover_image}}" class="img-fluid"/>
+                <a routerLink="/movies/{{movie.id}}"><i class="fa fa-download"></i></a>
+            </section>
+            <section class="movie-details">
+                <div class="movie-rating-wrapper">
+                    <div class="movie-rating">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <span class="rating-summary">
+                        {{movie.rating}}
+                    </span>
+                    <span class="year">{{movie.year}}</span>
+                </div>
+                <h4 class="movie-title">
+                    <a routerLink="/movies/{{movie.id}}">{{movie.title}}</a>
+                </h4>
+                <span class="tag">{{movie.genres}}</span>
+            </section>
+            
+        </article>
+    </ng-template>
+   
+</owl-carousel-o>
+</div>
+<!-- <div class="row">
+
+</div> -->
+
+<!-- <div *ngFor="let d of discriptions">
+    <p>{{d.description_full}}</p>
+</div>
+<div *ngFor="let d of discriptions2">
+    <p>{{d.description_full}}</p>
+</div>
+<div *ngFor="let d of discriptions3">
+    <p>{{d.description_full}}</p>
+</div>
+<div *ngFor="let d of discriptions4">
+    <p>{{d.description_full}}</p>
+</div> -->

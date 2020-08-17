@@ -1,0 +1,27 @@
+<div *ngIf="loading" class="loader-data">
+  <!-- <div class="loader">Loading...</div> -->
+  <img src="../../../../assets/images/ajax-loader.GIF" alt="">
+</div>
+<div class="hero-banner">
+  <owl-carousel-o [options]="customOptions">
+  
+      <ng-template carouselSlide *ngFor="let movie of movies">
+        <div class="banner-bg" style="background-image: url({{movie.background_image}});background-repeat: no-repeat;background-size: cover;">
+          <div class="poster">
+              <div class="image">
+                <img [src]="movie.large_cover_image" [alt]="movie.title_long" [title]="movie.title_long">
+              </div>
+              <div class="content-wrap">
+                <h2>{{movie.title}}
+                  <span>{{movie.year}}</span>
+                </h2>
+                <p>{{movie.summary}}</p>
+                <a routerLink="/movies/{{movie.id}}">More...</a>
+              </div> 
+            </div>
+        </div>
+        
+      </ng-template>
+    
+  </owl-carousel-o>
+</div>

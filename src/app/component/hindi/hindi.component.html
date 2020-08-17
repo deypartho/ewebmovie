@@ -1,0 +1,57 @@
+<div *ngIf="loading" class="loader-data">
+    <img src="../../../assets/images/ajax-loader.GIF" alt="">
+</div>
+<div class="row">
+<div class="col-sm-8 col-md-9">
+    <!-- <div class="row">
+        <div class="col-sm-12">
+            <div class="mega-select-present mega-select-top mega-select--full">
+                <div class="mega-select">
+                    <span class="mega-select__point">Search by</span> 
+                    <input  type='text' class="select__field" [(ngModel)]="name" (input)="search()">
+                    <div class="select__btn">
+                        <button  class="btn btn-md btn--danger location">
+                            search <span class="hidden-exrtasm">movie</span>
+                        </button>
+                    </div> 
+                </div>
+            </div>
+        </div> 
+    </div> -->
+    <h2 class="page-heading">Movie Hindi</h2>  
+
+    <div class="row">
+            <article class="col-md-3 col-6 col-sm-6 all-img-block" *ngFor="let movie of hindiList" >
+                <section class="movie-poster">
+                    <img src="{{movie.medium_cover_image}}" class="img-fluid"/>
+                    <a routerLink="/hindidetail/{{movie.id}}"><i class="fa fa-download"></i></a>
+                </section>
+                <section class="movie-details">
+                    <div class="movie-rating-wrapper">
+                        <div class="movie-rating">
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <span class="rating-summary">
+                            {{movie.rating}}
+                        </span>
+                        <span class="year">
+                            {{movie.year}}
+                        </span>
+                    </div>
+                    <h4 class="movie-title">
+                        <a routerLink="/movies/{{movie.id}}" >{{movie.title}}</a>  
+                    </h4>
+                    <span class="tag">{{movie.genres}}</span>
+                </section>
+            </article>
+    </div>   
+</div>
+<aside class="col-sm-4 col-md-3">
+    <div class="sitebar first-banner--left mt-43">
+        <div class="banner-wrap first-banner--left">
+            <img src="assets/images/add-section.jpg"/>
+        </div>
+
+    </div>
+</aside>
+</div>

@@ -1,0 +1,72 @@
+<div *ngIf="loading" class="loader-data">
+  <!-- <div class="loader">Loading...</div> -->
+  <img src="../../../../assets/images/ajax-loader.GIF" alt="">
+</div>
+<!-- <div class="hero">
+  <owl-carousel-o [options]="customOptions">
+  
+      <ng-template carouselSlide *ngFor="let movie of movies">
+        <div class="banner-bg"> 
+          <div class="poster">
+              <div class="image">
+                <img [src]="movie.large_cover_image" [alt]="movie.title_long" [title]="movie.title_long">
+              </div>
+              <div class="content-wrap">
+                <h2>{{movie.title}}
+                  <span>{{movie.year}}</span>
+                </h2>
+                <p>{{movie.summary}}</p>
+                <a routerLink="/movies/{{movie.id}}">More...</a>
+              </div> 
+            </div>
+        </div>
+        
+      </ng-template>
+    
+  </owl-carousel-o>
+</div> -->
+
+<!-- <div class="full-width-banner">
+  <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide *ngFor="let movie of movies">
+        <div class="banner-bg"> 
+          <div class="poster">
+            <div class="content-wrap">
+              <h4>{{movie.genres}}</h4>
+              <h2>{{movie.title}}</h2>
+              <h3>{{movie.year}}</h3>
+              <p>{{movie.summary}}</p>
+              <a routerLink="/movies/{{movie.id}}">More...</a>
+            </div> 
+              <div class="image" style="background-image: url({{movie.small_cover_image}}); background-size: cover ;">
+                <img [src]="movie.large_cover_image" [alt]="movie.title_long" [title]="movie.title_long" class="img-fluid">
+              </div>
+              
+            </div>
+        </div>
+      </ng-template>
+    
+  </owl-carousel-o>
+</div> -->
+<div class="full-width-banner">
+  <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide *ngFor="let movie of hindiMovie">
+        <div class="banner-bg"> 
+          <div class="poster">
+            <div class="content-wrap">
+              <h4>{{movie.genres}}</h4>
+              <h2>{{movie.title}}</h2>
+              <h3>{{movie.year}}</h3>
+              <p>{{movie.summary}}</p>
+              <a routerLink="/movies/{{movie.id}}">More...</a>
+            </div> 
+              <div class="image" style="background-image: url({{movie.small_cover_image}}); background-size: cover ;">
+                <img [src]="movie.large_cover_image" [alt]="movie.title_long" [title]="movie.title_long" class="img-fluid">
+              </div>
+              
+            </div>
+        </div>
+      </ng-template>
+    
+  </owl-carousel-o>
+</div>

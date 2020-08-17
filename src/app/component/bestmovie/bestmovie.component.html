@@ -1,0 +1,27 @@
+<div class="container">
+<div class="movie-best">
+    <div class="col-sm-10  offset-sm-1 movie-best__rating">Today Best choice</div>
+    <div class="col-sm-12 change--col">
+        <div class="movie-beta__item movie-poster-max-height" *ngFor="let movie of movies">
+           <img alt='' src="{{movie.medium_cover_image}}">
+            <span class="best-rate">{{movie.rating}}</span>
+
+            <ul class="movie-beta__info">
+                    <li>
+                        <p><span class="best-voted">Year: {{movie.year}}</span></p>
+                    </li>
+                    <li>
+                   <p class="movie__time">{{movie.runtime}} min</p>
+                   <p>{{movie.genres}}</p>
+                   <p>Language {{movie.language}}</p>
+                </li>
+                <li class="last-block">
+                    <a routerLink="/bestmoviedetail/{{movie.id}}" class="slide__link">more</a>
+                </li>
+            </ul>
+        </div>
+       
+    </div>
+   <div class="col-sm-10 offset-sm-1 movie-best__check">check all movies now playing</div>
+</div>
+</div>

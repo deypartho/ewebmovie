@@ -1,0 +1,29 @@
+// .form-group{
+//     position: absolute;
+//     right: 152px;
+//     top: 0px;
+//     bottom: 0;
+//     margin: auto;
+// }
+// .search{
+//     position: relative;
+//     top: 0;
+//     .search__field{
+//         margin-top: 0;
+//     }
+//     .search__button{
+//         top: 0;
+//     }
+//     .search__sort{
+//         opacity: 1;
+//         position: absolute;
+//         right: 152px;
+//         top: 0px;
+//         bottom: 0;
+//         margin: auto;
+//     }
+// }
+.search-wrapper{
+    display: flex;
+    align-items: center;
+}

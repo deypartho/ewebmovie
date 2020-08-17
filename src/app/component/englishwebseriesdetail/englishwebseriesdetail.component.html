@@ -1,0 +1,120 @@
+<div *ngIf="loading" class="loader-data">
+    <!-- <div class="img"></div> -->
+    <img src="../../../assets/images/ajax-loader.GIF" alt="">
+</div>
+<div class="movie detail">
+<div *ngIf="englishWebDetail">
+        <h2 class="page-heading">{{englishWebDetail.title}}</h2>
+        <div class="movie__info">
+            <div class="row">
+            <div class="col-sm-6 col-md-4 col-8 offset-md-0 offset-2 movie-mobile">
+                <div class="movie__images" style="background-image:  url({{englishWebDetail.small_cover_image}}); background-size: cover;">
+                    <img alt='' src="{{englishWebDetail.large_cover_image}}">
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-8 info col-12">
+                <p class="movie__time">{{englishWebDetail.runtime}} min</p>
+
+                <p class="movie__option"><span>Year:</span>  {{englishWebDetail.year}}</p>
+                <p class="movie__option"><span>Category:</span> {{englishWebDetail.genres}}</p>
+                <p class="movie__option"><span>Language:</span> Hindi</p>
+                <div class="torrent" *ngFor="let torrent of englishWebDetail.torrents">
+                    <!-- <span class="seed-peer">Quality : {{torrent.quality}}</span> -->
+                    <p class="movie__option"><span>Size :</span> {{torrent.size}}</p>
+                    <p class="movie__option"><span>Seeds :</span> {{torrent.seeds}}</p>
+                    <p class="movie__option"><span>Peers :</span> {{torrent.peers}}</p>
+                    <p class="movie__option"><span>Quality :</span> {{torrent.quality}}</p>
+                    <a href="{{torrent.url}}" target="_blank" class="download">
+                        <i class="fas fa-download"></i>
+                    </a>
+                    <a [href]="torrent.hash | safeurl:  'resourceUrl'" target="_blank" class="magnet"><i class="fas fa-magnet"></i></a>
+                    <a href="#" type="button" class="trailer-btn"  data-toggle="modal" data-target="#strimingModal" class="btn btn-primary">
+                        <i class="fas fa-play"></i>
+                        Play Movie
+                    </a>
+                    <!-- striming Modal----------------------------------------- -->            
+                    <div class="modal modal-striming" tabindex="-1" role="dialog" id="strimingModal">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="modal-body">
+                                <iframe scrolling="no" class="yvideo"  height="100%" width="100%" style="width:100%;height:100%;"  [src]="('https://ytsembed.xyz/stream/'+torrent.hash) | safeurl: 'resourceUrl'" allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>      
+                    </div>    
+                        
+                    <!-- Modal end--------------------------------------------------- -->
+                    </div>
+                
+            </div>
+        </div>
+        </div>
+        
+        <div class="clearfix"></div>
+        
+        <h2 class="page-heading">The plot</h2>
+       
+        <p class="movie__describe">{{englishWebDetail.description_full}}</p>
+        <h2 class="page-heading">Trailer</h2>
+        <div class="screenshot row">
+            <div class="col-md-4 trailer">
+                <img src="{{englishWebDetail.large_cover_image}}" class="trailer-img" alt="">
+                <a href="#" type="button" class="trailer-btn"  data-toggle="modal" data-target="#exampleModal">
+                    <i class="far fa-play-circle"></i>
+                </a>
+            </div>
+              <div class="col-md-8">      
+               
+              </div>
+              <!-- Modal -->
+              <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <button type="button" class="close" data-dismiss="modal">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    <div class="modal-body">
+                        <iframe width="100%" class="yvideo" height="345" [src]="('https://www.youtube.com/embed/'+ englishWebDetail.yt_trailer_code) | safeurl: 'resourceUrl'" allowfullscreen>
+                        </iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+        </div>
+        <!-- <h2 class="page-heading">Movie Suggestions</h2>
+
+        <div class="row">
+            <article class="col-md-3 col-6 col-sm-4 all-img-block" *ngFor="let movie of movieSuggesList">
+                <section class="movie-poster">
+                    <img src="{{movie.medium_cover_image}}" class="img-fluid"/>
+                    <a routerLink="/moviessugges/{{movie.id}}"><i class="fa fa-download"></i></a>
+                </section>
+                <section class="movie-details">
+                    <div class="movie-rating-wrapper">
+                        <div class="movie-rating">
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <span class="rating-summary">
+                            {{movie.rating}}
+                        </span>
+                    </div>
+                    <h4 class="movie-title">
+                        <a routerLink="/moviessugges/{{movie.id}}" href="/movies/{{movie.id}}" >{{movie.title}}</a>
+                    </h4>
+                    <span class="tag">{{movie.genres}}</span>  
+                </section>
+                
+            </article>
+            </div> -->
+        
+    <!-- </div> -->
+    
+</div>

@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="mega-select-present mega-select-top mega-select--full">
+            <div class="mega-select">
+                <span class="mega-select__point">Search by</span>
+                
+                <ul class="mega-select__sort">
+                    <li class="filter-wrap"><a href="#" class="mega-select__filter filter--active" data-filter='location'>Location</a></li>
+                    <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='cinema'>Cinema</a></li>
+                    <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='film-category'>Category</a></li>
+                    <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='actors'>Actors</a></li>
+                    <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='director'>Director</a></li>
+                    <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='country'>Country</a></li>
+                </ul>
+    
+                <input #searchMovie type='text' class="select__field">
+                <div class="select__btn">
+                    <button (click)='getData()' class="btn btn-md btn--danger location">
+                        search <span class="hidden-exrtasm">movie</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div> 
+    </div>

@@ -1,0 +1,64 @@
+<div *ngIf="loading" class="loader-data">
+    <img src="../../../assets/images/ajax-loader.GIF" alt="">
+</div>
+
+<div class="row">
+    <div class="col-sm-8 col-md-9">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="mega-select-present mega-select-top mega-select--full">
+                    <div class="mega-select">
+                        <!-- <span class="mega-select__point">Search by</span> -->
+                        <input #searchMovie type='text' class="select__field">
+                        <div class="select__btn">
+                            <button (click)='getEmgData(searchMovie)' class="btn btn-md btn--danger location">
+                                search <span class="hidden-exrtasm">movie</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <h2 class="page-heading">Action and Adventure</h2>
+        <section class="row">
+            <ng-container  *ngFor="let movie of movies | paginate: { itemsPerPage: limit, currentPage: p, totalItems: total }" >
+            <article class="col-md-3 col-sm-6 col-6 all-img-block">
+                <section class="movie-poster">
+                    <img src="{{movie.medium_cover_image}}" class="img-fluid"/>
+                    <a routerLink="/movies/{{movie.id}}"><i class="fa fa-download"></i></a>
+                </section>
+                <section class="movie-details">
+                    <div class="movie-rating-wrapper">
+                        <div class="movie-rating">
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <span class="rating-summary">
+                            {{movie.rating}}
+                        </span>
+                        <span class="year">{{movie.year}}</span>
+                    </div>
+                    <h4 class="movie-title">
+                        <a routerLink="/movies/{{movie.id}}">{{movie.title}}</a>
+                    </h4>
+                    <span class="tag">{{movie.genres}}</span>
+                </section>
+                
+            </article>
+        </ng-container>
+        <div class="pagination pagination-sm m-0 float-right">
+            <pagination-controls (pageChange)="getPage($event)"></pagination-controls>
+        </div> 
+        </section>
+
+    </div>
+    <aside class="col-sm-4 col-md-3">
+        <div class="sitebar first-banner--left mt-43">
+        
+            <div class="banner-wrap first-banner--left">
+                <img src="assets/images/add-section.jpg"/>
+            </div>
+    
+        </div>
+    </aside>
+</div>
