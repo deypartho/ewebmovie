@@ -3,6 +3,7 @@ import { HomeService } from '../../service/home.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router, NavigationEnd } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
+import { response } from 'express';
 
 @Component({
   selector: 'app-detail',
@@ -16,6 +17,7 @@ export class DetailComponent implements OnInit {
   
   movieList:any;
   movieSuggesList:any
+  movieReview: any;
   
   constructor(
     private service: HomeService, 
@@ -41,6 +43,10 @@ export class DetailComponent implements OnInit {
         this.movieSuggesList = response.data.movies
         this.loading = false;
         
+      })
+      this.service.getMovieReview(this.route.snapshot.params.id).subscribe(response=>{
+        this.movieReview =  response
+        console.log(this.movieReview)
       })
       this.router.events.subscribe((evt) => {
         if (!(evt instanceof NavigationEnd)) {

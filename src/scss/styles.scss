@@ -9663,6 +9663,36 @@ html {
      .info{
        p{
          color: $white;
+         .fas{
+           &.fa-hand-middle-finger{
+             color: #ff64ec;
+             font-size: 2rem;
+              margin-left: 10px;
+              position: relative;
+              top: 4px;
+           }
+           &.fa-battery-quarter{
+             color: #ff1a02;
+             font-size: 2rem;
+              margin-left: 10px;
+              position: relative;
+              top: 4px;
+           }
+           &.fa-battery-half{
+             color: #ffbc00;
+             font-size: 2rem;
+              margin-left: 10px;
+              position: relative;
+              top: 4px;
+           }
+           &.fa-battery-full{
+             color: #79ff79;
+             font-size: 2rem;
+              margin-left: 10px;
+              position: relative;
+              top: 4px;
+           }
+         }
        }
        @media(max-width: 767px){
         padding-top: 20px;
@@ -10379,4 +10409,7 @@ html {
             }
         }
     }
+}
+.display-none{
+  display: none !important;
 }

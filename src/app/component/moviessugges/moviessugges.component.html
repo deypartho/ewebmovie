@@ -25,9 +25,39 @@
                     <p class="movie__option"><span>Size : </span>{{torrent.size}}</p>
                     <p class="movie__option"><span>Seeds : </span>{{torrent.seeds}}</p>
                     <p class="movie__option"><span>Peers : </span>{{torrent.peers}}</p>
+                    <p class="movie__option"><span>Health For Watching :</span> 
+                        <i class="fas" 
+                        [ngClass]="{'fa-battery-quarter': torrent.seeds < 60, 
+                        'fa-battery-half': torrent.seeds < 100,
+                        'fa-hand-middle-finger': torrent.seeds < 10,
+                        'fa-battery-full': torrent.seeds > 100
+                    }">
+                    </i>  
+                    </p>
                     <a href="{{torrent.url}}" target="_blank" class="download">
                         <i class="fas fa-download"></i></a>
                         <a [href]="('magnet:?xt=urn:btih:'+ torrent.hash ) | safeurl: 'resourceUrl'" target="_blank" class="magnet"><i class="fas fa-magnet"></i></a>
+                        <a href="#" type="button" [ngClass]="{'display-none':  torrent.seeds < 400}" 
+                        class="trailer-btn"  data-toggle="modal" data-target="#strimingModal" class="btn btn-primary">
+                        <i class="fas fa-play"></i>
+                        Play Movie
+                    </a>
+                        <!-- striming Modal----------------------------------------- -->            
+                        <div class="modal modal-striming" tabindex="-1" role="dialog" id="strimingModal">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <button type="button" class="close" data-dismiss="modal"aria-label="Close">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                                <div class="modal-body">
+                                    <iframe scrolling="no" class="yvideo"  height="100%" width="100%" style="width:100%;height:100%;"  [src]="('https://play.seedess.com/'+torrent.hash) | safeurl: 'resourceUrl'" allowfullscreen>
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>      
+                        </div>    
+                            
+                        <!-- Modal end--------------------------------------------------- -->
                 </div>
                 
             </div>

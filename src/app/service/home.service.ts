@@ -58,4 +58,7 @@ export class HomeService {
   getSuggesMovie(id): Observable<any>{
     return this._http.get(`${this._ytsUrl}${this.suggess}movie_id=${id}&with_images=true&with_cast=true`)
   }
+  getMovieReview(id): Observable<any>{
+    return this._http.get(`${this._ytsUrl}movie_comments.json?movie_id=${id}`)
+  }
 }
